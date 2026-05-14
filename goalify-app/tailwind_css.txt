@@ -1,0 +1,34 @@
+https://tailwindcss.com/docs/font-size
+https://www.creative-tim.com/twcomponents/cheatsheet
+
+Tailwind CSS is a utility-first CSS framework used to build modern user interfaces quickly.
+Modern CSS
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+Tailwind
+className="bg-white p-5 rounded-[10px]" => p1 means 4px
+className="bg-white p-5 rounded-lg"
+rounded-lg is very close to 10px and is more commonly used in Tailwind.
+
+A 4px scale
+Utility	        Meaning
+p-4	        padding
+m-4	        margin
+flex	        display flex
+text-center	center text
+bg-blue-500	blue background 500 → medium shade of blue
+rounded-xl	rounded corners
+shadow-lg	large shadow
+
+Tailwind Color Scale (MUST BE ADDED)
+Usually the scale goes:
+Class	        Meaning
+blue-50	        very very light
+blue-100	very light
+blue-300	light
+blue-500	normal/default
+blue-700	dark
+blue-900	very dark
