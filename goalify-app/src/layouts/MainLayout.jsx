@@ -1,19 +1,16 @@
 import Sidebar from "../components/Sidebar/Sidebar.jsx";
-
+import { Outlet } from "react-router-dom";
 
 function MainLayout() {
   return (
     <div className="flex h-screen">
-      <aside className="w-70 bg-blue-100 p-4 border-r-8 border-blue-200">
-        <Sidebar />
-      </aside>
+      <Sidebar />
 
-      <main className="flex-1 p-4">Main content</main>
-
+      <main className="flex-1 p-4">
+        <Outlet />
+      </main>
     </div>
   );
 }
 
 export default MainLayout;
-
-

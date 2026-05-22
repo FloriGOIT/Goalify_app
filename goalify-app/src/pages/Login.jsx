@@ -1,19 +1,11 @@
-import { LogOut, LogIn } from "lucide-react";
-import {Link} from "react-router-dom"
-const sidebarLinkStyle =
-  "flex items-center gap-3 py-1 font-bold text-gray-500 rounded-xl w-40 transition duration-300 hover:bg-blue-200 hover:text-gray-600 hover:shadow-[6px_6px_14px_rgba(59,130,246,0.5)]";
-
-
-export default function Profile() {
-  let logging = true;
-
+export default function Login() {
   return (
-    <Link to="/" className={sidebarLinkStyle}>
-      {logging ? <LogOut size={22} /> : <LogIn size={22} />}
+    <main className="p-6">
+      <h1 className="text-2xl font-bold">Login</h1>
 
-      <h3 className="pb-1 ">
-        {logging ? "Log Out" : "Log In"}
-      </h3>
-    </Link>
-  );
+      <p className="text-gray-500 mt-2">
+        Here you will manage your Login.
+      </p>
+    </main>
+  )
 }
