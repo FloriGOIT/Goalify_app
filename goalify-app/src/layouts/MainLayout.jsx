@@ -6,7 +6,7 @@ function MainLayout() {
     <div className="flex h-screen">
       <Sidebar />
 
-      <main className="flex-1 p-4">
+      <main className="flex-1 bg-linear-to-br from-slate-100 via-blue-50 to-slate-200">
         <Outlet />
       </main>
     </div>

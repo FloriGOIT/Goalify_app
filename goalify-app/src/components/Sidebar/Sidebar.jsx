@@ -1,9 +1,9 @@
 
 import SidebarLogo from "./SidebarLogo";
 import SidebarItem from "./SidebarItem";
-import { sidebarData, buttonBlueStyle} from "./sidebarData";
-import {Plus} from "lucide-react"
-import { Link } from "react-router-dom";
+import { sidebarData} from "./sidebarData";
+import NewProjectBtn from "./NewProjectBtn";
+
 import LogNav from "./LogNav";
 
 
@@ -16,8 +16,8 @@ export default function Sidebar() {
         {sidebarData.map( natvigationitem=>(<SidebarItem key={natvigationitem.label} info={natvigationitem}/>))}
       </nav>
 
-      <button>
-        <NewProject/>
+      <button className="mt-10">
+        <NewProjectBtn/>
       </button>
       <footer className="mt-auto pb-10">
         <LogNav/>
@@ -28,12 +28,4 @@ export default function Sidebar() {
 }
 
 
-function NewProject() {
-  return (
-    <Link to="/newProject" className={buttonBlueStyle}>
-   <Plus />
-   <h4 className="pl-3">New project</h4>
-    </Link>
-  )
-}
 
