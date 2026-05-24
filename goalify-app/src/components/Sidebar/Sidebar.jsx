@@ -13,7 +13,7 @@ export default function Sidebar() {
       <SidebarLogo />
 
       <nav className="flex flex-col gap-4 ">
-        {sidebarData.map( natvigationitem=>(<SidebarItem key={natvigationitem.label} info={natvigationitem}/>))}
+        {sidebarData.map( natvigationitem=>(<SidebarItem key={natvigationitem.icon} info={natvigationitem}/>))}
       </nav>
 
       <button className="mt-10">

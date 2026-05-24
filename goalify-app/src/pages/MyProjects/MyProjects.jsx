@@ -23,7 +23,7 @@ export default function ProjectsPage() {
 {projectsData.length > 0 ? (
   <div className="h-[75vh] overflow-y-auto flex flex-col gap-3">
 
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-8">
       {projectsData.map((project) => (
         <ProjectCard
           key={project.id}

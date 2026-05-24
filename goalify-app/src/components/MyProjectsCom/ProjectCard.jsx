@@ -8,7 +8,7 @@ export default function ProjectCard({
   dueDate,
 }) {
   return (
-    <article className="bg-white rounded-3xl p-4 shadow-md hover:shadow-xl transition duration-300 border border-gray-100 w-full max-w-100 max-h-60">
+    <article className="bg-white rounded-3xl p-4 shadow-md hover:shadow-xl transition duration-300 border border-gray-100 w-100 h-52">
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div>

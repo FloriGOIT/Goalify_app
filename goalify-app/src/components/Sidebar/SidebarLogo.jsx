@@ -2,7 +2,7 @@ import { Boxes} from "lucide-react";
 
 export default function SidebarLogo() {
   return (
-    <div className="mb-10 flex items-center gap-2.5 ">
+    <div className="mb-10 flex flex-row items-center gap-2.5 ">
       <Boxes
         className="text-blue-600"
         size={40}
