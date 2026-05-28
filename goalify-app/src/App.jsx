@@ -13,19 +13,36 @@ import Notes from "./pages/Notes";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import Calendar from "./pages/Calendar";
+import { useState, useEffect } from "react";
+
 
 function App() {
+  const [projects, setProjects] = useState(() => {
+    const savedProjects = localStorage.getItem("projects");
+    return savedProjects ? JSON.parse(savedProjects) : [];
+  });
+
+  useEffect(() => {localStorage.setItem("projects", JSON.stringify(projects))}, [projects]);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-  
+
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="projects" element={<MyProjects />} />
-          <Route path="projects/new" element={<NewProject />} />
-          <Route path="projects/:projectName" element={<ProjectDetails />} />
+          <Route path="projects">
+            <Route index element={<MyProjects projects={projects} setProjects={setProjects}/>} />
+            <Route
+              path="new"
+              element={
+                <NewProject projects={projects} setProjects={setProjects} />
+              }
+            />
+            <Route path=":projectName" element={<ProjectDetails />} />
+          </Route>
+
           <Route path="calendar" element={<Calendar />} />
           <Route path="notes" element={<Notes />} />
           <Route path="profile" element={<Profile />} />
@@ -39,4 +56,4 @@ function App() {
 }
 
 export default App;
-//          <Route path="projects/newProject" element={<NewProject />} />
+

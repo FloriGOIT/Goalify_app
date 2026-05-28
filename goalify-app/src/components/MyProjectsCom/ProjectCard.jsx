@@ -1,12 +1,21 @@
 import { Pencil, Trash2 } from "lucide-react";
 
 export default function ProjectCard({
+ id,
   title,
   description,
   progress,
   status,
   dueDate,
+  setProjects 
 }) {
+  const handleDelete = () => {
+  setProjects((prev) =>
+    prev.filter(
+      (item) => item.id !== id
+    )
+  );
+};
   return (
     <article className="bg-white rounded-3xl p-4 shadow-md hover:shadow-xl transition duration-300 border border-gray-100 w-100 h-52">
       {/* Header */}
@@ -14,19 +23,17 @@ export default function ProjectCard({
         <div>
           <h2 className="text-xl font-bold text-gray-800">{title}</h2>
 
-          <p className="text-sm text-gray-500 mt-1">
-            {description}
-          </p>
+          <p className="text-sm text-gray-500 mt-1">{description}</p>
         </div>
 
         {/* Action Buttons */}
         <div className="flex gap-2">
           <button className="px-3 py-1 text-sm rounded-xl bg-blue-100 text-blue-600 hover:bg-blue-200 transition cursor-pointer">
-            <Pencil/>
+            <Pencil />
           </button>
 
-          <button className="px-3 py-1 text-sm rounded-xl bg-red-100 text-red-600 hover:bg-red-200 transition cursor-pointer">
-            <Trash2/>
+          <button className="px-3 py-1 text-sm rounded-xl bg-red-100 text-red-600 hover:bg-red-200 transition cursor-pointer" onClick={handleDelete}>
+            <Trash2 />
           </button>
         </div>
       </div>
@@ -34,9 +41,7 @@ export default function ProjectCard({
       {/* Progress */}
       <div className="mb-5">
         <div className="flex justify-between mb-2">
-          <span className="text-sm font-medium text-gray-600">
-            Progress
-          </span>
+          <span className="text-sm font-medium text-gray-600">Progress</span>
 
           <span className="text-sm font-semibold text-blue-600">
             {progress}%
@@ -59,13 +64,12 @@ export default function ProjectCard({
               status === "Completed"
                 ? "bg-green-100 text-green-700"
                 : status === "Paused"
-                ? "bg-gray-200 text-gray-700"
-                : "bg-blue-100 text-blue-700"
+                  ? "bg-gray-200 text-gray-700"
+                  : "bg-blue-100 text-blue-700"
             }`}
         >
           {status}
         </span>
-
         <p className="text-sm text-gray-500">
           Due: <span className="font-medium">{dueDate}</span>
         </p>

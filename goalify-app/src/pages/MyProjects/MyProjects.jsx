@@ -2,11 +2,10 @@ import { getRandomPhrase } from "./helpData";
 import NewProjectBtn from "../../components/Sidebar/NewProjectBtn";
 import BoxBottomMyProject from "../../components/MyProjectsCom/BoxBottomMyProject";
 import ProjectCard from "../../components/MyProjectsCom/ProjectCard";
-import { projectsData } from "../../components/MyProjectsCom/ProjectData";
 
 const randomPhrase = getRandomPhrase();
 
-export default function ProjectsPage() {
+export default function ProjectsPage({projects, setProjects}) {
   return (
     <section className="p-10 pr-20 flex flex-col  min-h-screen border gap-3">
       <div className="flex items-start justify-between ">
@@ -20,18 +19,20 @@ export default function ProjectsPage() {
       </div>
 
 
-{projectsData.length > 0 ? (
+{projects.length > 0 ? (
   <div className="h-[75vh] overflow-y-auto flex flex-col gap-3">
 
     <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-8">
-      {projectsData.map((project) => (
+      {projects.map((project) => (
         <ProjectCard
-          key={project.id}
+          key={project.title}
+          id={project.id}
           title={project.title}
           description={project.description}
           progress={project.progress}
           status={project.status}
           dueDate={project.dueDate}
+          setProjects={setProjects}
         />
       ))}
     </div>
